@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         'hpgold': '#F6B910',
       },
+      height: {
+        '500': '28rem',
+      }
     },
   },
   // plugins: [require("daisyui")],
