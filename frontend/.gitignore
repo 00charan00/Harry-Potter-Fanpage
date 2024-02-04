@@ -1,10 +1,4 @@
-# frontend/.gitignore
 
-# Ignore assets folder in src
-/src/assets
-
-# Rest of the existing entries...
-# dependencies
 /node_modules
 /.pnp
 .pnp.js
