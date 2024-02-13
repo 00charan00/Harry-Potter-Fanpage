@@ -1,49 +1,47 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Validation from'./LoginValidation'
+import Validation from './LoginValidation';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
-import "./index.css"
+import axios from 'axios';
+import "./index.css";
 import hplogo from "./assets/hp.png";
-import Flags from "./assets/flags_houses.jpg";
-
-
-
 
 function Login() {
+  const [values, setValues] = useState({
+    email:'',
+    password: ''
+  });
+  const navigate = useNavigate();
+
+  const [errors, setErrors] = useState({});
+
+  const handleInput = (event) => {
+    setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
+  }; 
   
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const validationErrors = Validation(values);
+    setErrors(validationErrors); // Update errors state
 
-    const [values, setValues]=useState({
-      email:'',
-      password: ''
-  })
-  const navigate=useNavigate();
-
-  const [errors,setErrors] = useState({})
-  const handleInput=(event)=>{
-      setValues(prev =>({...prev,[event.target.name]:[event.target.value]}))
-
-  } 
-  
-  const handleSubmit =(event)=>{
-      event.preventDefault();
-      setErrors(Validation(values))
-      if(errors.email===""&&errors.password===""){
-          // alert("hello");
-          axios.post('http://localhost:8080/login',values).then(res => {
-              if(res.data==="Success Charan"){
-                  navigate('/home');
-              }
-              else{
-                  alert("failure")
-              }
-          }).catch(err => console.log(err));
+    // Use setTimeout to ensure that errors state has been updated before checking
+    setTimeout(() => {
+      if (Object.values(errors).every(error => error === "")) {
+        axios.post('http://localhost:8080/login', values)
+          .then(res => {
+            if (res.data === "Success Charan") {
+              navigate('/home');
+            } else {
+              alert("failure")
+            }
+          })
+          .catch(err => console.log(err));
       }
-  }
+    }, 0);
+  };
 
   return (
-
     <div className="bg-flags h-screen flex items-center justify-center cursor-elderwand">
       <div className="bg-white p-8 rounded-lg shadow-md sm:w-full sm:max-w-sm">
         <img
