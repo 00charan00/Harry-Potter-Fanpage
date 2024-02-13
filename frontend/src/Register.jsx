@@ -57,7 +57,7 @@ function Register() {
                 type="text" placeholder="Enter name" name="name" onChange={handleInput}
                 className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
-              {errors.name && <span className="text-danger">{errors.name }</span>}
+              {errors.name && <span className="text-sm text-red-500">{errors.name }</span>}
             </div>
           </div>
 
@@ -70,7 +70,7 @@ function Register() {
                 type="email" placeholder="Enter email" name="email" onChange={handleInput}
                 className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
-              {errors.email && <span className="text-danger">{errors.email }</span>}
+              {errors.email && <span className="text-sm text-red-500">{errors.email }</span>}
             </div>
           </div>
 
@@ -83,7 +83,7 @@ function Register() {
                 type="password" placeholder="Enter password" name="password" onChange={handleInput}
                 className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
-              {errors.password && <span className="text-danger">{errors.password }</span>}
+              {errors.password && <span className="text-sm text-red-500">{errors.password }</span>}
             </div>
           </div>
 
@@ -105,3 +105,9 @@ function Register() {
 }
 
 export default Register;
+
+
+
+
+
+
