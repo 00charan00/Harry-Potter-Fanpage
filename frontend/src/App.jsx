@@ -5,7 +5,7 @@ import Sorting from './Sorting.jsx';
 
 import Hogwartsacceptanceletter from "./Hogwartsacceptanceletter.jsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import PartOne from "./PartOne";
+
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
         <Route path='/home' element={<Home />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/sorting' element={<Sorting />}></Route>
-        <Route path='/partone' element={<PartOne />}></Route>
         <Route path='/letter' element={<Hogwartsacceptanceletter />}></Route>
 
       </Routes>

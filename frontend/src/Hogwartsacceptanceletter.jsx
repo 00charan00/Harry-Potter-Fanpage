@@ -30,7 +30,7 @@ function Hogwartsacceptanceletter() {
     };
 
     return (
-        <div>
+        <div className="cursor-default">
             <Navbar />
             <div className="flex justify-center items-center h-screen">
                 <div className="max-w-md bg-white shadow-lg rounded-xl overflow-hidden">

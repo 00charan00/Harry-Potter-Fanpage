@@ -13,8 +13,7 @@ module.exports = {
       },
       height: {
         '500': '28rem',
-      }
+      },
     },
   },
-  // plugins: [require("daisyui")],
 }

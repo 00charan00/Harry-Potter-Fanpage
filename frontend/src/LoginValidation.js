@@ -7,23 +7,23 @@ function Validation(values) {
     if(values.email==="")
     {
         error.email="Email should not be empty";
-    }     
-    else if(!email_pattern.test(values.email)) 
-    {
-        error.email = "Email Didn't match"; 
     }
-    else 
+    else if(!email_pattern.test(values.email))
+    {
+        error.email = "Email Didn't match";
+    }
+    else
     {
         error.email=""
     }
-    if(values.password==="") 
+    if(values.password==="")
     {
         error.password="Password should not be empty";
     }
     else if(!password_pattern.test(values.password)){
         error.password = "Password didn't match";
-    } 
-    else 
+    }
+    else
     {
         error.password="";
     }
