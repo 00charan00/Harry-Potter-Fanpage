@@ -4,8 +4,8 @@ import { useState } from "react";
 import Validation from './LoginValidation';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import "./index.css";
-import hplogo from "./assets/hp.png";
+import "../index.css";
+import hplogo from "../assets/hp.png";
 
 function Login() {
     const [values, setValues] = useState({
@@ -72,11 +72,11 @@ function Login() {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                 Password
                             </label>
-                            <div className="text-sm">
-                                <a href="#" className="font-semibold text-indigo-500 hover:text-indigo-700">
-                                    Forgot password?
-                                </a>
-                            </div>
+                            {/*<div className="text-sm">*/}
+                            {/*    <a href="#" className="font-semibold text-indigo-500 hover:text-indigo-700">*/}
+                            {/*        Forgot password?*/}
+                            {/*    </a>*/}
+                            {/*</div>*/}
                         </div>
                         <div className="mt-2">
                             <input

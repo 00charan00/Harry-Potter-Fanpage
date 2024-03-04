@@ -1,14 +1,18 @@
 const express = require("express");
+const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 const cors = require("cors");
 const PDFDocument = require('pdfkit');
 const { createWriteStream } = require('fs');
 const { statSync } = require("fs");
+const WelcomeText = require('./welcomeText');
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
+const welcomeTextInstance = new WelcomeText();
+const port=8080;
 
 
 const db = mysql.createConnection({
@@ -17,6 +21,53 @@ const db = mysql.createConnection({
   password: "1030",
   database: "harrypotterdb"
 });
+
+
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'nodemailercharan@gmail.com',
+        pass: 'brftpryzsogquwjk'
+    }
+});
+
+
+
+
+function sendEmail(receiverEmail,receiverName) {
+    var nodemailer = require('nodemailer');
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'nodemailercharan@gmail.com',
+            pass: 'brftpryzsogquwjk'
+        }
+    });
+
+
+
+    var mailOptions = {
+        from: 'nodemailercharan@gmail.com',
+        to: receiverEmail, // Use the provided email dynamically
+        subject: 'Welcome to [Your Harry Potter Website Name]!',
+        text: `Dear ${receiverName},\n ${welcomeTextInstance.welcome}`
+    };
+
+
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
+
+
+
 
 app.post('/register',(req,res)=>{
   console.log(req.body);
@@ -30,7 +81,9 @@ app.post('/register',(req,res)=>{
         if(err){
             return res.json("ERROR");
         }
+        sendEmail(req.body.email,req.body.name);
         return res.json(data);
+
     })
 
 })
@@ -127,7 +180,7 @@ app.get('/',(req,res)=>{
     //function to check if backend is running in browser
     res.json("Hii charan");
 })
-app.listen(8080, () => {
-  console.log("listening in 8080");
+app.listen(port, () => {
+  console.log(`listening in ${port}`);
 });
 

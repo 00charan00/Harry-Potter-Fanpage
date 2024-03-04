@@ -1,5 +1,5 @@
-import Login from './Login.jsx';
-import Register from './Register.jsx';
+import Login from './login/Login.jsx';
+import Register from './register/Register.jsx';
 import Home from './Home.jsx';
 import Sorting from './Sorting.jsx';
 

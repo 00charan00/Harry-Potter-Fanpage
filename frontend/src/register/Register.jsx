@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Validation from "./RegisterValidation"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import "./index.css";
-import hplogo from "./assets/hp.png";
+import "../index.css";
+import hplogo from "../assets/hp.png";
 
 function Register() {
     const [values, setValues] = useState({
